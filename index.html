@@ -1,0 +1,21 @@
+<div id="occupied">
+</div>
+
+<!-- Fetching data from the API and updating the HTML element with the id "occupied" every second. -->
+<script>
+    const URLAPI = "http://localhost:8000/get-spot";
+
+    function setData(dt) {
+    data = dt;
+    }
+    setInterval(()=>{
+        fetch(URLAPI)
+        .then(response => response.json()).then( json => setData(json))
+        .catch(error => console.error(error))
+        .finally(() => {
+            console.log("Data received 1 --> ", data);
+            });
+        document.getElementById("occupied").innerHTML = data.occupied;
+        data = null;
+    },1000);
+</script>
