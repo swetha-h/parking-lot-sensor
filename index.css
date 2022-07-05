@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Roboto:wght@100&display=swap');
+
+body{
+    background-image: url("./pattern_park.png");
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Roboto';
+}
+
+#occupied{
+    border-radius: 10px;
+    height: 50vh;
+    width: 30vh;
+    background-color: #b8e994;
+    border: 2px solid #78e08f;
+    text-align: center;
+}
+
