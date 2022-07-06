@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body{
     background-image: url("./pattern_park.png");
@@ -7,15 +7,21 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: 'Open Sans';
+    
+}
+
+h1{
+    font-weight: 600;
 }
 
 #occupied{
     border-radius: 10px;
     height: 50vh;
     width: 30vh;
-    background-color: #b8e994;
-    border: 2px solid #78e08f;
+    background-color: #b7e994b2;
+    border: 2px #78e08fd7 dashed;
     text-align: center;
+    
 }
 
