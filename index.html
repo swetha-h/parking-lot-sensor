@@ -14,7 +14,7 @@
         <div id="occupied">
             <h5>Available!</h5>
         </div>
-    
+        <h4>Slot no: ---</h4>
     
 </body>
 </html>
@@ -33,7 +33,18 @@
         .finally(() => {
             console.log("Data received 1 --> ", data);
             });
-        document.getElementById("occupied").innerHTML = data.occupied;
+        let div = document.getElementById("occupied");
+
+        if(data="true"){
+            div.innerHTML = `<h5>available!</h5>`;
+            div.style.backgroundColor = "#b7e994b2";
+            div.style.border= "2px #00b894 dashed";    
+        }else{
+            div.innerHTML = `<h5>occupied :(</h5>`;
+            div.style.backgroundColor = "#b2bec3";
+            div.style.border= "2px #636e72 dashed";        
+        }
+        
         data = null;
     },1000);
 </script>
