@@ -1,5 +1,23 @@
-<div id="occupied">
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>IoT project</title>
+</head>
+<body>
+    
+        <h1>Parking lot sensor</h1>
+        <h4>An IoT project to solve our ever increasing parking woes</h3>
+        <div id="occupied">
+            <h5>Available!</h5>
+        </div>
+        <h4>Slot no: ---</h4>
+    
+</body>
+</html>
 
 <!-- Fetching data from the API and updating the HTML element with the id "occupied" every second. -->
 <script>
@@ -15,7 +33,18 @@
         .finally(() => {
             console.log("Data received 1 --> ", data);
             });
-        document.getElementById("occupied").innerHTML = data.occupied;
+        let div = document.getElementById("occupied");
+
+        if(data="true"){
+            div.innerHTML = `<h5>available!</h5>`;
+            div.style.backgroundColor = "#b7e994b2";
+            div.style.border= "2px #00b894 dashed";    
+        }else{
+            div.innerHTML = `<h5>occupied :(</h5>`;
+            div.style.backgroundColor = "#b2bec3";
+            div.style.border= "2px #636e72 dashed";        
+        }
+        
         data = null;
     },1000);
 </script>
