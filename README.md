@@ -11,7 +11,7 @@ This repository contains
 
 - Connect the board and laptop to same network
 - Run `ipconfig` on PC to get PC's IP.
-- Edit `serverName` in iot_project board code to reflect the current PC's IP
+- Edit `serverName` in [sensor.ino](./sensor.ino) to reflect the current PC's IP
 - Create virtual env and install requirements from [requirements.txt](./requirements.txt)
 ```bash
 python -m venv env

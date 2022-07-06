@@ -1,10 +1,13 @@
 import json
 import os
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-from pydantic import BaseModel
-from dotenv import load_dotenv
 import smtplib
+from pathlib import Path
+
+from dotenv import load_dotenv
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
 
 load_dotenv()
 
@@ -30,19 +33,26 @@ Subject: %s
 
 app = FastAPI()
 
+app.mount(
+    "/static",
+    StaticFiles(directory=Path(__file__).parent.absolute() / "static"),
+    name="static",
+)
+
+templates = Jinja2Templates(directory="templates")
+
 
 class ParkingSpot(BaseModel):
     id: int
     occupied: int
 
-
 @app.get("/")
-async def hello_world():
+async def hello_world(request: Request):
     """
     It returns an HTMLResponse object with the content of the index.html file and a status code of 200
     :return: an HTMLResponse object.
     """
-    return HTMLResponse(content=open("index.html", "r").read(), status_code=200)
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.post("/update-spot")

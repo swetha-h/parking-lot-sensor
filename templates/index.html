@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
+    <link href="{{ url_for('static', path='/css/index.css') }}" rel="stylesheet">
     <title>IoT project</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
             });
         let div = document.getElementById("occupied");
 
-        if(data="true"){
+        if(!data.occupied){
             div.innerHTML = `<h5>available!</h5>`;
             div.style.backgroundColor = "#b7e994b2";
             div.style.border= "2px #00b894 dashed";    
